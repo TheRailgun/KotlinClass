@@ -5,7 +5,7 @@ fun main(args : Array<String>) {
     println(PI)
 
     fun division(a:Int, b:Int): Double{
-        if(b==0){
+        if(a==0||b==0){
             throw IllegalArgumentException(
                 "Months cant be 0"
             ) 
