@@ -15,4 +15,6 @@ fun main(args : Array<String>) {
 
     println(division(3,2))
     //println(division(3,0))//this throws the above exception
+
+    
 }
