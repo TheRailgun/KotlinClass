@@ -8,7 +8,7 @@ fun main(args : Array<String>) {
         "don" to 202934543,
         "elle" to 330394011,
         "frances" to 839047202,
-        "gaby2" to 901239409
+        "gaby" to 901239409
     )   
     
     val purchases = arrayOf(
