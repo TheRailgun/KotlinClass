@@ -1,21 +1,3 @@
-import java.io.*
-import java.math.*
-import java.security.*
-import java.text.*
-import java.util.*
-import java.util.concurrent.*
-import java.util.function.*
-import java.util.regex.*
-import java.util.stream.*
-import kotlin.collections.*
-import kotlin.comparisons.*
-import kotlin.io.*
-import kotlin.jvm.*
-import kotlin.jvm.functions.*
-import kotlin.jvm.internal.*
-import kotlin.ranges.*
-import kotlin.sequences.*
-import kotlin.text.*
 /*
  * Complete the 'isBalanced' function below.
  *
@@ -23,10 +5,65 @@ import kotlin.text.*
  * The function accepts STRING s as parameter.
  */
 fun isBalanced(s: String): String {
-    var ans = "No"
+    var ans = "No"//defaults to no so we can break early
+    val arr = s.toCharArray()
+    val len = arr.size
+    val arrClone = CharArray(len)
+
+        for ((i, brac) in arr.withIndex()) {
+            if (brac == '(') {
+                if (arr[i + 1] == ')') {
+                    arrClone[i] = '('
+                    arrClone[i + 1] = ')'
+                } else {
+                    for (j in 1..((len - 1 - i) / 2)) {
+                        if((i + 1 + (2 * j))<len) {
+                            if (arr[i + 1 + (2 * j)] == ')') {
+                                arrClone[i] = '('
+                                arrClone[i + 1 + (2 * j)] = ')'
+                            }
+                        }
+                    }
+                }
+            } else if (brac == '[') {
+                if (arr[i + 1] == ']') {
+                    arrClone[i] = '['
+                    arrClone[i + 1] = ']'
+                } else {
+                    for (j in 1..((len - 1 - i) / 2)) {
+                        if((i + 1 + (2 * j))<len) {
+                            if (arr[i + 1 + (2 * j)] == ']') {
+                                arrClone[i] = '['
+                                arrClone[i + 1 + (2 * j)] = ']'
+                            }
+                        }
+                    }
+                }
+            } else if (brac == '{') {
+                if (arr[i + 1] == '}') {
+                    arrClone[i] = '{'
+                    arrClone[i + 1] = '}'
+                } else {
+                    for (j in 1..((len - 1 - i) / 2)) {
+                        if((i + 1 + (2 * j))<len){
+                                if (arr[i + 1 + (2 * j)] == '}') {
+                                    arrClone[i] = '{'
+                                    arrClone[i + 1 + (2 * j)] = '}'
+                                }
+                            }
+                    }
+                }
+            }
+        }
+        println(arr)
+        println(arrClone)
+
+    if(arr.contentEquals(arrClone)){
+        ans = "Yes"
+    }
     return ans
 }
-fun main(args: Array<String>) {
+fun main() {
     val t = readLine()!!.trim().toInt()
     for (tItr in 1..t) {
         val s = readLine()!!
