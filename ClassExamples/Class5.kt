@@ -1,5 +1,4 @@
-
-private var counter = 0 
+/*private var counter = 0 
 class customer(val name:String){
     private val uniqueID : String
     init{
