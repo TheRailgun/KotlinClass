@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HWweek4Retrieve</string>
+    <string name="text_view_data">Location Unknown</string>
+    <string name="view_button">Retrieve Location</string>
+
+
+</resources>
